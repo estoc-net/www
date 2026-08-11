@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Estoc Research studies decentralized communication: local-first data, self-hosted content, and DIDComm mediators that carry messages to people who are offline.">
+<title>Estoc Research</title>
+<style>
+:root {
+  --bg: #F1F4F5;
+  --ink: #182028;
+  --muted: #55636F;
+  --accent: #2F7A6B;
+  --line: #C9D2D7;
+  --faint: #E2E8EB;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1519;
+    --ink: #DCE4E9;
+    --muted: #8FA0AC;
+    --accent: #57B39E;
+    --line: #2A353D;
+    --faint: #1A232A;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1519;
+  --ink: #DCE4E9;
+  --muted: #8FA0AC;
+  --accent: #57B39E;
+  --line: #2A353D;
+  --faint: #1A232A;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+.mono {
+  font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+}
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 5rem;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.5rem 0 1rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 4.5rem;
+}
+.wordmark, .eyebrow {
+  font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.wordmark { color: var(--ink); }
+header .domain {
+  font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+h1.lede {
+  margin: 0;
+  font-size: 1.1875rem;
+  font-weight: 400;
+  max-width: 36rem;
+}
+section { margin-top: 4.5rem; }
+.eyebrow {
+  display: block;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+section > p { max-width: 36rem; }
+section > p + p { margin-top: 1rem; }
+.threads { display: grid; gap: 2rem; }
+.threads h2 { font-size: 1.1875rem; font-weight: 600; margin-bottom: 0.375rem; }
+.threads p { color: var(--muted); max-width: 34rem; }
+.threads .proto {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+figure { margin-top: 2rem; }
+.diagram {
+  border: 1px solid var(--line);
+  background: var(--faint);
+  border-radius: 2px;
+  padding: 1.5rem 1rem 1rem;
+  overflow-x: auto;
+}
+.diagram svg { display: block; width: 100%; min-width: 34rem; height: auto; }
+figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--muted);
+  max-width: 34rem;
+}
+.d-label { font: 0.75rem ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--ink); }
+.d-sub { font: 0.6875rem ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); }
+.d-node { fill: none; stroke: var(--ink); stroke-width: 1.25; }
+.d-mediator { fill: none; stroke: var(--accent); stroke-width: 1.25; }
+.d-arrow { stroke: var(--muted); stroke-width: 1.25; fill: none; }
+.d-arrowhead { fill: var(--muted); }
+footer {
+  margin-top: 5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="wordmark">Estoc Research</span>
+  <span class="domain">estoc.net</span>
+</header>
+
+<h1 class="lede">Estoc Research is an independent research studio working on decentralized communication: how people can keep their own data, host their own presence, and reach each other — even offline — without a platform in the middle.</h1>
+
+<section>
+  <span class="eyebrow">What we believe</span>
+  <p>Your data should live on your devices, not in someone else's cloud. Your content should be served from hardware you control, addressed by who you are rather than where you signed up. And your messages should reach you even when your devices are asleep — carried by relays that hold sealed envelopes, not readable mail.</p>
+  <p>None of this requires everyone to become a system administrator. It requires protocols where delegation is safe: where the parties you rely on can be verified, replaced, and told as little as possible.</p>
+</section>
+
+<section>
+  <span class="eyebrow">Three research threads</span>
+  <div class="threads">
+    <div>
+      <h2>Local-first data</h2>
+      <p>Data that lives on your own devices and syncs between them on your terms. Servers, where they exist at all, are replaceable relays — not the home of the truth.</p>
+      <span class="proto mono">CRDTs · sync protocols</span>
+    </div>
+    <div>
+      <h2>Self-hosted presence</h2>
+      <p>Publishing from a machine you control — a home server, a small box on your shelf — and being findable through your identity, not a platform account.</p>
+      <span class="proto mono">DIDs · did:web · did:peer</span>
+    </div>
+    <div>
+      <h2>Messaging that survives offline</h2>
+      <p>Personal devices are not always on. Mediators accept encrypted envelopes for you while you're away and hand them over when you return — seeing ciphertext, never content. How little can a mediator be made to know? That question is our sharpest point.</p>
+      <span class="proto mono">DIDComm v2 · Coordinate Mediation · Message Pickup</span>
+    </div>
+  </div>
+
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 150" role="img" aria-label="Diagram: a sender passes a sealed envelope to a mediator, which stores only ciphertext until the offline recipient comes online and picks it up.">
+        <circle class="d-node" cx="70" cy="60" r="26"/>
+        <text class="d-label" x="70" y="64" text-anchor="middle">you</text>
+
+        <line class="d-arrow" x1="104" y1="60" x2="248" y2="60"/>
+        <polygon class="d-arrowhead" points="248,60 238,55.5 238,64.5"/>
+        <text class="d-sub" x="176" y="48" text-anchor="middle">sealed envelope</text>
+
+        <rect class="d-mediator" x="256" y="32" width="128" height="56" rx="2"/>
+        <text class="d-label" x="320" y="56" text-anchor="middle">mediator</text>
+        <text class="d-sub" x="320" y="74" text-anchor="middle">ciphertext only</text>
+
+        <line class="d-arrow" x1="392" y1="60" x2="536" y2="60" stroke-dasharray="5 5"/>
+        <polygon class="d-arrowhead" points="536,60 526,55.5 526,64.5"/>
+        <text class="d-sub" x="464" y="48" text-anchor="middle">picked up later</text>
+
+        <circle class="d-node" cx="570" cy="60" r="26"/>
+        <text class="d-label" x="570" y="64" text-anchor="middle">them</text>
+        <text class="d-sub" x="570" y="110" text-anchor="middle">offline right now —</text>
+        <text class="d-sub" x="570" y="126" text-anchor="middle">and that's fine</text>
+      </svg>
+    </div>
+    <figcaption>Mediated delivery in DIDComm: the mediator is a mailbox, not a post office. It stores sealed envelopes until their owner collects them, and learns as little as the protocol allows.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <span class="eyebrow">Where we are</span>
+  <p>Estoc Research is new — a set of questions before it is a set of answers. We are mapping the DIDComm mediator ecosystem, running interoperability experiments, and measuring what mediators can actually observe. Research notes will be published here as they mature.</p>
+</section>
+
+<section>
+  <span class="eyebrow">Contact</span>
+  <p>Working on mediators, local-first software, or self-hosted identity? We'd like to compare notes: <a href="mailto:estoc@merely.ca">estoc@merely.ca</a></p>
+</section>
+
+<footer>
+  <span>Estoc Research</span>
+  <span>2026</span>
+</footer>
+
+</div>
+</body>
+</html>
