@@ -91,6 +91,8 @@ section > p + p { margin-top: 1rem; }
   color: var(--accent);
   letter-spacing: 0.02em;
 }
+.projects { margin-top: 1.75rem; }
+.projects h2 { font-size: 1rem; letter-spacing: 0.01em; }
 figure { margin-top: 2rem; }
 .diagram {
   border: 1px solid var(--line);
@@ -133,6 +135,7 @@ footer {
 
 <header>
   <span class="wordmark">Estoc Research</span>
+  <a class="wordmark" href="https://github.com/estoc-net">GitHub</a>
 </header>
 
 <h1 class="lede">Estoc Research is an independent research studio working on decentralized communication: how people can keep their own data, host their own presence, and reach each other — even offline — without a platform in the middle.</h1>
@@ -194,6 +197,25 @@ footer {
 <section>
   <span class="eyebrow">Where we are</span>
   <p>Estoc Research is new — a set of questions before it is a set of answers. We are mapping the DIDComm mediator ecosystem, running interoperability experiments, and measuring what mediators can actually observe. Research notes will be published here as they mature.</p>
+</section>
+
+<section>
+  <span class="eyebrow">In the open</span>
+  <p>The working code so far is on <a href="https://github.com/estoc-net">GitHub</a>:</p>
+  <div class="threads projects">
+    <div>
+      <h2 class="mono"><a href="https://github.com/estoc-net/didcomm-mediator">didcomm-mediator</a></h2>
+      <p>A DIDComm v2 mediator anyone can run with one command — standard protocols over plain HTTP and WebSocket, no accounts, no vendor SDK. Runs as a single Node process or on Cloudflare Workers; ours is live at <span class="mono">mediator.estoc.dev</span>.</p>
+    </div>
+    <div>
+      <h2 class="mono"><a href="https://github.com/estoc-net/didcomm-demo">didcomm-demo</a></h2>
+      <p>A see-through DIDComm v2 messenger. On the surface, a small chat app; underneath, every message keeps its envelopes, and an inspector peels them layer by layer to show exactly what each relay could see. Try it at <a href="https://didcomm-demo.estoc.dev">didcomm-demo.estoc.dev</a>.</p>
+    </div>
+    <div>
+      <h2 class="mono"><a href="https://github.com/estoc-net/didcomm-http">didcomm-http</a></h2>
+      <p>DIDComm pack, unpack, and DID resolution behind a plain HTTP API with an OpenAPI spec — so any language can speak DIDComm without binding to a Rust or WASM toolchain. Stateless by design: it keeps no keys between requests.</p>
+    </div>
+  </div>
 </section>
 
 <section>
